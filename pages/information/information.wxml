@@ -1,0 +1,32 @@
+<!-- pages/information/information.wxml -->
+<view class="container">
+  <view class="item">
+    <text class="label">头像：</text>
+    <image wx:if='{{avatar}}' class="avatar" src="{{ avatar }}"></image>
+    <button  wx:else class="getava" open-type="chooseAvatar" bindchooseavatar="chooseavatar">点击获取头像</button>
+  </view>
+  <view class="item">
+    <text class="label">真实姓名：</text>
+    <text class="value">{{ realName }}</text>
+  </view>
+  <view class="item">
+    <text class="label">性别：</text>
+    <text class="value" wx:if="{{gender == '女'}}">女</text>
+    <text class="value" wx:else>男</text>
+  </view>
+  <view class="item">
+    <text class="label">联系电话：</text>
+    <text class="value">{{ contactNumber }}</text>
+  </view>
+  <view class="item">
+    <text class="label">紧急联系人姓名：</text>
+    <text class="value">{{ emergencyContactName }}</text>
+  </view>
+  <view class="item">
+    <text class="label">紧急联系人电话：</text>
+    <text class="value">{{ emergencyContactNumber }}</text>
+  </view>
+  <button class="button" bindtap="modifyInformation">修改个人信息</button>
+  <button class="button" bindtap="logout">退出登录</button>
+</view>
+

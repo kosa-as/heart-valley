@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="title">
+    <text>请选择咨询师</text>
+  </view>
+  <view class="counselor-list">
+    <view wx:for="{{ counselor }}" wx:key="index" class="counselor-item" bindtap="choose" data-item="{{item}}" data-state="{{ item.state }}">
+      <view>
+        <image class="avatar" src="/static/images/tabs/tab-personal-current.png"></image>
+      </view>
+      <view class="counselor-info">
+        <view class="complexinfo">
+          <view class="name">{{ item.name }}</view>
+          <view class="past" wx:if="{{item.past == 1}}">咨询过</view>
+          <view class="state">
+            <view wx:if="{{item.is_Busy == 'free'}}" class="free">空闲</view>
+            <view wx:elif="{{item.is_Busy == 'busy'}}" class="busy">忙碌</view>
+            <view wx:else class="busy">异常</view>
+          </view>
+        </view>
+        <view class="pingjia">
+        <text>综合评价</text>
+        </view>
+        <view class="score">{{ item.score }}</view>
+      </view>
+    </view>
+  </view>
+  <view class="vacant">
+  </view>
+</view>

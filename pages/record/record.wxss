@@ -1,0 +1,117 @@
+/* pages/record/record.wxss */
+page {
+  background-color: #EEEEEE;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.record-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.content {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.ava-wrap {
+  width: 100rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.ava {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 650rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+  margin-right: 20rpx;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+}
+
+.name {
+  color: #8B8B8B;
+}
+
+.time {
+  color:rgba(185, 185, 185, 0.8) ;
+}
+
+.record-body-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20rpx 0;
+}
+
+.pic {
+  width: 100%;
+}
+
+.sound-wrap {
+  display: flex;
+  align-items: center;
+  margin: 10rpx 20rpx;
+  background-color: rgb(223, 223, 223);
+  font-size: 28rpx;
+  color:rgb(160, 160, 160) ;
+}
+
+.relay-wrap {
+  display: flex;
+  align-items: center;
+  margin: 10rpx 20rpx;
+  background-color: rgb(223, 223, 223);
+  font-size: 28rpx;
+  color:rgb(160, 160, 160) ;
+}
+
+.reject {
+  width: 64rpx;
+  margin: 16rpx 30rpx;
+  margin-right: 40rpx;
+}
+
+.horizontal-line {
+  width: 100%;
+  height: 1rpx;
+  margin-top: 20rpx;
+  background-color: rgba(95, 95, 95,0.1);
+}
+
+.record-body-item:last-child .horizontal-line {
+  display: none;
+}
+
+.item-horizontal-line {
+  width: 100%;
+  height: 1rpx;
+  margin-top: 20rpx;
+  background-color: rgba(95, 95, 95,0.1);
+}
+
+.record-item:last-child {
+  margin-bottom: 100rpx;
+}

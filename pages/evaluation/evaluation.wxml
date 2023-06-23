@@ -1,0 +1,17 @@
+<!--pages/evaluation/evaluation.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="time">{{ time }}</view>
+    <view class="counselor">
+      <image class="avatar" src="{{ avatar }}"></image>
+      <text class="name">{{ name }}</text>
+    </view>
+    <view class="rating">
+      <text>您的评价：</text>
+      <Rate starValue="{{ rating }}" isShowStarValue="{{ false }}" disabled="{{ true }}" id="star" WH="60" ></Rate>
+    </view>
+  </view>
+  <view class="evaluation">
+    <view class="content">{{ evaluation }}</view>
+  </view>
+</view>

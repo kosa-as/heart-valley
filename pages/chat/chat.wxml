@@ -1,0 +1,143 @@
+<!--pages/chat/chat.wxml-->
+<view class="container">
+  <header avatar="{{avatar}}" name="{{name}}" bind:complete="onComplete" class="head">
+  </header>
+  <!-- 录音时的提示 -->
+  <view wx:if="{{isRecording}}" class="record-modal">
+    <view class="wrapper">
+      <image src="/static/iconfont/recording.png" mode="widthFix" class="icon1"></image>
+      <image src="/static/iconfont/recording.gif" mode="widthFix" class="modal-loading"></image>
+    </view>
+    <view class="modal-title">
+      {{title}}
+    </view>
+  </view>
+
+  <view class="chat-area"> 
+    <scroll-view scroll-into-view="{{ colToView }}" scroll-y="true" bindscrolltoupper="onLoadMore" bindtap="onHideSendMore">
+        <view class="loader-wrap" wx:if="{{showLoading}}" >
+            <text class="loader"></text>
+        </view>
+        <block wx:for="{{ arrMsg }}" wx:key="index">
+            <view class="{{ item.from === colUserId?'':'chat-his'}} newnew">
+                <view wx:if="{{item.type == 'TIMImageElem'}}"  id="msg-{{index}}" class="new">
+                  <view class="chat-time">{{ item.timeFormat }}</view>
+                  <view class="chat-row flex-box-end">
+                    <view class="chat-img">
+                        <image wx:if="{{item.status=='success'}}" class="chat-pic" mode="heightFix" lazy-load="{{true}}" src="{{item.payload.imageInfoArray[0].url}}" bindtap="previewImage" data-url="{{item.payload.imageInfoArray[2].url}}"></image>
+                        <image wx:elif="{{item.status=='fail'}}" class="chat-pic" mode="heightFix" lazy-load="{{true}}" src="{{item.sendPic}}" data-url="{{item.payload.imageInfoArray[2].url}}">
+                            <view class="chat-progress">发送失败</view>
+                        </image>
+                        <image wx:else class="chat-pic" mode="heightFix" lazy-load="{{true}}" src="{{item.sendPic}}" data-url="{{item.payload.imageInfoArray[2].url}}">
+                            <view class="chat-progress">
+                                <text class="loader"></text>
+                                <text>{{colPercent}}%</text>
+                            </view>
+                        </image>
+                    </view>
+                    <view class="chat-head">
+                        <image class="chat-headPortrait" src="../../image/home_img/page2.jpg"></image>
+                    </view>
+                  </view>
+                </view>
+                <view wx:elif="{{item.type == 'TIMCustomElem'}}"  id="msg-{{index}}" class="new"></view>
+                <view wx:elif="{{item.type == 'TIMSoundElem'}}"  id="msg-{{index}}" class="new">
+                  <view class="chat-time">{{ item.timeFormat }}</view>
+                  <view class="chat-row flex-box-end">
+                    <view class="chat-main">
+                        <!--  <view class="left-chat-name">{{ item.from }}</view>-->
+                        <!-- 默认状态 -->
+                        <view class='chat-msg' wx:if="{{isplayId != item.payload.uuid || !isplayId}}" bindtap='audioPlay' data-key="{{index}}" data-uuid="{{item.payload.uuid}}" data-src="{{item.payload.url}}">
+                          <view class='audio audioformat' style="width:calc(90rpx + {{item.payload.second*10}}rpx);max-width: 464rpx">
+                            <image class='ico' mode="widthFix" src='/static/iconfont/audio6.png' />
+                            <label class='time timeformat'>{{item.payload.second}}''</label>
+                          </view>
+                        </view>
+                        <!-- 当前正在播放状态 -->
+                        <view class='chat-msg' wx:if="{{isplayId == item.payload.uuid}}" bindtap="audioStop">
+                          <view class='audio audioformat' style="width:calc(90rpx + {{item.payload.second*10}}rpx);max-width: 464rpx">
+                            <image class='ico' mode="widthFix" src='/static/iconfont/audio6.gif'/>
+                            <label class='time timeformat'>{{item.payload.second}}''</label>
+                          </view>
+                        </view>    
+                    </view>
+                    <view class="chat-head">
+                        <image class="chat-headPortrait" src="../../image/home_img/home.png"></image>
+                    </view>
+                  </view>
+                </view>
+                <view wx:elif="{{item.type == 'TIMRelayElem'}}"  id="msg-{{index}}" class="new" >
+                  <view class="chat-time">{{ item.timeFormat }}</view>
+                  <view class="chat-row flex-box-end">
+                    <view class="chat-main">
+                        <!--  <view class="left-chat-name">{{ item.from }}</view>-->
+                        <view class="chat-msg {{isSelected === index ? 'clicked' : ''}}"  bind:touchstart="handleTouchStart"  bind:touchend="handleTouchEnd" bindtap="toRecordDetail" data-msg="{{item}}" data-id="{{index}}">
+                          <view class="relaycontainer">
+                            <view class="relaytitle">
+                              {{item.payload.title}}
+                            </view>
+                            <view class="relayabstractList">
+                              <view class="relayabstract" wx:for="{{item.payload.abstractList}}">
+                                <view>{{item}}</view>
+                              </view>
+                            </view>
+                            <view class="horizontal-line relayline"></view>
+                            <view class="relayfoot">咨询记录</view>
+                          </view>
+                        </view>    
+                    </view>
+                    <view class="chat-head">
+                        <image class="chat-headPortrait" src="../../image/home_img/home.png"></image>
+                    </view>
+                  </view>
+                </view>
+                <view wx:else  id="msg-{{index}}" class="new">
+                  <view class="chat-time">{{ item.timeFormat }}</view>
+                  <view class="chat-row flex-box-end">
+                    <view class="chat-main">
+                        <!--  <view class="left-chat-name">{{ item.from }}</view>-->
+                        <view class="chat-msg">{{ item.payload.text }}</view>    
+                    </view>
+                    <view class="chat-head">
+                        <image class="chat-headPortrait" src="../../image/home_img/home.png"></image>
+                    </view>
+                  </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view class="chat-footer">
+        <view wx:if="{{!showAudio}}" class="chat-input-box">
+            <view class="wrap-ico" bindtap="convert1">
+              <image src="/static/iconfont/voice.png" class="footico"></image>
+            </view>
+            <input bindinput='onInputMsg' bindconfirm='TIM_createMsg' value="{{colSendMsg}}" placeholder='输入内容' class="input" cursor-spacing="20"></input>
+            <view class = 'footer-send' bindtap = 'TIM_createMsg'>
+                发送
+            </view>
+            <view class='footer-send' bindtap='UpdateSendMore'>
+                更多
+            </view>
+        </view>
+        <view wx:if="{{showAudio}}" class="audiobox">
+          <view class="wrap-ico" bindtap="convert2">
+              <image src="/static/iconfont/keyboard.png" class="footico"></image>
+          </view>
+          <view  class="voice-button" bind:touchstart="record" bind:touchend="handleRecordStop" bind:longpress="handleRecordStart" bind:touchmove="handleTouchmove">
+          <text class="title_input">{{title_input}}</text>
+          </view>
+        </view>
+        <view class="open-more" wx:if="{{showSendMore}}">
+            <view class="open-more-item" bindtap="TIM_createPhoto" data-name="album">
+                <image src="../../image/message/image.png" mode="widthFix" class="msg-img"></image>
+                <view class="msg-text">相册</view>
+            </view>
+            <view class="open-more-item" bindtap="TIM_createPhoto" data-name="camera">
+                <image src="../../image/message/camera.png" class="msg-img" mode="widthFix"></image>
+                <view class="msg-text">拍摄</view>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>
+

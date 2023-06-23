@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <view class="top-bar">
+  <text>让我们开始咨询吧！</text>
+  <view class="add">
+    <image src="/static/iconfont/add.png" bindtap="goToConsultation"></image>
+  </view>
+  </view>
+
+  <view class="consultation-list">
+    <view wx:if="{{ consultationRecords.length === 0 }}" class="no-consultation">尚未进行过咨询</view>
+    <view wx:else>
+    <view wx:for="{{ consultationRecords }}" wx:key="index" class="consultation-item" wx:for-index="key">
+      <view class="item-header">
+        <view class="time">{{ item.starttime }}</view>
+        <image class="arrow" src="/static/button/r_arrow.png" data-recordid="{{key}}" bindtap="goToRecordDetails"></image>
+      </view>
+      <view class="divider"></view>
+      <view class="item-content">
+        <view class="counselor-info">
+          <image class="avatar" src="/static/images/tabs/tab-personal-current.png"></image>
+          <view class="name">{{ item.c_name }}</view>
+        </view>
+        <view class="info">
+          <view>
+            <text>咨询用时</text>
+            <view class="duration">{{ item.duration }}</view>
+          </view>
+          <view>
+            <text>我的评价</text>
+            <Rate starValue="{{ item.level }}" isShowStarValue="{{false}}" disabled="{{true}}" id="star" WH="60" class="myrating"></Rate>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="vacant"></view>
+</view>
+

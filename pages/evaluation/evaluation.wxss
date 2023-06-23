@@ -1,0 +1,70 @@
+/* pages/evaluation/evaluation.wxss */
+page {
+  background-color: #EEEEEE;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60rpx;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.time {
+  font-size: 40rpx;
+  margin-bottom: 40rpx;
+  color: #333;
+}
+
+.counselor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 32rpx;
+  color: #333;
+  margin-left: 80rpx;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+  margin-top: 20rpx;
+  margin-right: 340rpx;
+}
+
+.evaluation {
+  margin-top: 40rpx;
+  padding: 0 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.content {
+  min-width: 500rpx;
+  min-height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 40rpx;
+  margin: 6rpx;
+  padding: 10rpx;
+  border:1rpx solid rgba(153, 153, 153,0.5);
+  border-radius: 10rpx;
+}

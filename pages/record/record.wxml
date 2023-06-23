@@ -1,0 +1,51 @@
+<!--pages/record/record.wxml-->
+<view class="container">
+  <view wx:for="{{ messageList }}" wx:key="index" class="record-item"> 
+    <view class="content">
+      <view class="ava-wrap">
+        <image src="{{item.avatar}}" class="ava"></image>
+      </view>
+      <view class="message">
+        <view class="header">
+          <view class="name">
+          {{item.nick}}
+          </view>
+          <view class="time">
+          {{item.clientTime}}
+          </view>
+        </view>
+        <view class="body">
+          <view wx:for="{{ item.messageBody }}" wx:key="index" class="record-body-item">
+            <view wx:if="{{item.type == 'TIMImageElem'}}" class="pic-wrap">
+              <image  class="pic" mode="widthFix" lazy-load="{{true}}" src="{{item.payload.imageInfoArray[0].url}}" bindtap="previewImage" data-url="{{item.payload.imageInfoArray[2].url}}">
+              </image>
+            </view>
+            <view wx:elif="{{item.type == 'TIMTextElem'}}" class="textmsg-wrap">
+              <view class="textmsg">
+              {{ item.payload.text }}
+              </view>
+            </view>
+            <view wx:elif="{{item.type == 'TIMSoundElem'}}" class="sound-wrap">
+              <image class="reject" mode="widthFix" src="/static/iconfont/soundreject.png">
+              </image>
+              <view class="sound">
+              --语音消息--暂不支持查看--
+              </view>
+            </view>
+            <view wx:elif="{{item.type == 'TIMRelayElem'}}" class="relay-wrap">
+              <image class="reject" mode="widthFix" src="/static/iconfont/relayreject.png">
+              </image>
+              <view class="relay">
+              --合成消息--暂不支持查看--
+              </view>
+            </view>
+            <view class="horizontal-line">
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="item-horizontal-line">
+    </view>
+  </view>
+</view>

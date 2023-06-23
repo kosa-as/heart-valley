@@ -1,0 +1,25 @@
+<!-- pages/forgetpwd/forgetpwd.wxml -->
+<view class="container">
+  <view class="wrapper">
+    <view class="left-top-sign">Forget Password</view>
+    <view class="welcome">
+      请输入您的手机号和新密码
+    </view>
+    <view class="input-content">
+      <view class="input-item">
+        <text class="tit">手机号:</text>
+        <input type="text" placeholder="请输入手机号" data-test="abc" data-type="password" id="phone" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit">新密码:</text>
+        <input type="password" placeholder="请输入新密码" data-test="abc" data-type="password" id="newPassword" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit">确认密码:</text>
+        <input type="password" placeholder="请再次输入新密码" data-test="abc" data-type="password" id="confirmPassword" bindinput="handleInput" />
+      </view>
+    </view>
+    <button class="confirm-btn" bindtap="resetPassword">重置密码</button>
+  </view>
+</view>
+

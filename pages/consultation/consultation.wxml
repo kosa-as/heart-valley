@@ -1,0 +1,20 @@
+<!--pages/consultation/consultation.wxml-->
+<view class="container">
+  <view class="session-list">
+    <view wx:for="{{ sessionList }}" wx:key="index" class="session-item" data-otherid= "{{item.username}}" data-name="{{item.name}}" bindtap="todetail">
+      <view class="avatar-wrapper">
+        <image class="avatar" src="/static/images/tabs/tab-personal-current.png"></image>
+      </view>
+      <view class="session-info">
+        <view class="session-top">
+          <view class="name">{{ item.name }}</view>
+          <view class="time">{{ item.time }}</view>
+        </view>
+        <view class="session-bottom">
+          <text class="message">{{ item.message }}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

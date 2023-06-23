@@ -1,0 +1,57 @@
+<!-- pages/register/register.wxml -->
+<view class="container">
+  <view class="wrapper">
+    <view class="left-top-sign">Register</view>
+    <view class="welcome">
+      欢迎加入心声谷！
+    </view>
+    <view class="input-content">
+      <view class="input-item">
+        <text class="tit">手机号码:</text>
+        <input type="text" placeholder="请输入手机号码" data-test="abc" data-type="phone" id="phone" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit">密码:</text>
+        <input type="password" placeholder="请输入密码" data-test="abc" data-type="password" id="password" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit">确认密码:</text>
+        <input type="password" placeholder="请确认密码" data-test="abc" data-type="password" id="confirmPassword" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit">真实姓名:</text>
+        <input type="text" placeholder="请输入真实姓名" data-test="abc" data-type="name" id="realName" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit gendertit">性别:</text>
+        <view class="radio-group">
+          <radio-group bindchange="handleGenderChange">
+            <label class="radio-label">
+              <radio value="男" checked="{{gender === '男'}}" />
+              <text class="radio-text">男</text>
+            </label>
+            <label class="radio-label">
+              <radio value="女" checked="{{gender === '女'}}" />
+              <text class="radio-text">女</text>
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="input-item-1 input-item">
+        <text class="tit">紧急联系人电话:</text>
+        <input type="tel" placeholder="请输入紧急联系人电话" data-test="abc" data-type="emergencyPhone" id="emergencyPhone" bindinput="handleInput" />
+      </view>
+      <view class="input-item-1 input-item">
+        <text class="tit">紧急联系人姓名:</text>
+        <input type="text" placeholder="请输入紧急联系人姓名" data-test="abc" data-type="name" id="emergencyName" bindinput="handleInput" />
+      </view>
+      <view class="input-item">
+        <text class="tit">验证码:</text>
+        <input type="text" placeholder="请输入验证码" data-test="abc" data-type="code" id="verificationCode" bindinput="handleInput" />
+        <button class="get-code" bindtap="getCode">获取验证码</button>
+      </view>
+    </view>
+    <button class="confirm-btn" bindtap="register">注册</button>
+  </view>
+</view>
+

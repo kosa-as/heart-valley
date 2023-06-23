@@ -1,0 +1,10 @@
+<view class='starbox'>
+ <view class='imgbox imgbox1' >
+   <block wx:for="{{stars}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+     <image class="star-image" style="width:{{WH}}rpx;height:{{WH}}rpx;left: {{item*(WH+10)}}rpx" src="{{starValue > item ?(starValue-item < 1?halfSrc:selectedSrc) : normalSrc}}" bindtap="rateStar" data-index="{{index}}">
+     </image>
+   </block>
+ </view>
+ <view class="score" wx:if="{{isShowStarValue}}"><text> {{starValue}}</text></view>
+</view>
+

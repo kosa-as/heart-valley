@@ -1,0 +1,105 @@
+/* components/head-component/head-componnet.wxss */
+.container {
+  width: 100%;
+  height: 240rpx;
+  background: #ffffff;
+  display: flex;
+  text-align: center;
+  padding: 20rpx;
+}
+
+.ava {
+  width:28%;
+  height: 200rpx;
+}
+
+.avatar {
+  align-items: center;
+  width:160rpx;
+  height: 160rpx;
+  margin-top: 20rpx;
+  border-radius: 50%;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  justify-content:space-evenly;
+}
+
+.name {
+  font-size: 32rpx;
+}
+
+.state {
+  font-size: 28rpx;
+}
+
+.timecounter {
+  font-size: 36rpx;
+}
+
+.ongoing {
+  color: darkseagreen;
+}
+
+.finished {
+  color: rgba(153, 153, 153,0.8);
+}
+
+
+
+.vertical-line {
+  width: 1rpx;
+  height: 200rpx;
+  background-color: rgba(153, 153, 153,0.8);
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+}
+
+.finish {
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+  align-items: center;
+  font-size: 24rpx;
+  color:rgba(153, 153, 153,0.8) ;
+}
+.horizontal-line {
+  width: 80%;
+  height: 1rpx;
+  background-color: rgba(153, 153, 153,0.8) ;
+  margin-top: 4rpx;
+  margin-bottom: 4rpx;
+}
+
+.conveyrecords {
+  display: flex;
+  flex-direction: column;
+  height: 100rpx;
+  align-items: center;
+  font-size: 24rpx;
+  color:rgba(153, 153, 153,0.8) ;
+}
+.completed {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width:60rpx;
+  height: 60rpx;
+}
+
+.cimg {
+  width:80rpx;
+  height: 80rpx;
+}

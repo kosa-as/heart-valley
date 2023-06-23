@@ -1,0 +1,35 @@
+<!--components/head-component/head-componnet.wxml-->
+<view class="container">
+  <view class="ava">
+    <image src="/static/images/tabs/tab-personal-current.png" class="avatar"></image>
+  </view>
+  <view class="content">
+    <view class="name">
+      {{name}}
+    </view>
+    <view class="state">
+      <text class="ongoing" wx:if="{{state == 'ongoing'}}" >正在咨询中...</text>
+      <text class="finished" wx:elif="{{state == 'finished'}}">咨询已结束</text>
+    </view>
+    <view class="timecounter">
+      {{time}}
+    </view>
+  </view>
+  <view class="vertical-line"></view>
+  <view class="option" wx:if="{{state == 'ongoing'}}">
+    <view class="finish" bindtap="complete">
+      <image src="/static/iconfont/finish.png" class="img"></image>
+      <text>结束咨询</text>
+    </view>
+    <view class="horizontal-line"></view>
+    <view class="conveyrecords" bindtap="convey">
+      <image src="/static/iconfont/conveyrecords.png" class="img"></image>
+      <text>发送记录</text>
+    </view>
+  </view>
+  <view class="completed" wx:elif="{{state == 'finished'}}">
+    <image src="/static/iconfont/completed.png" class="cimg"></image>
+    <text>咨询完成</text>
+  </view>
+</view>
+

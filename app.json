@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/login/login", 
+    "pages/index/index",
+    "pages/convey/convey",
+    "pages/evaluating/evaluating",
+    "pages/information/information",
+    "pages/register/register",
+    "pages/forgetpwd/forgetpwd",
+    "pages/consultation/consultation",
+    "pages/updateinfo/updateinfo",
+    "pages/waiting/waiting",
+    "pages/chooseCounselor/chooseCounselor",
+    "pages/chat/chat",
+    "pages/evaluation/evaluation",
+    "pages/record/record"
+  ],
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#d43c33",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "/static/images/tabs/tab-home.png",
+        "selectedIconPath": "/static/images/tabs/tab-home-current.png"
+      },
+      {
+        "pagePath": "pages/consultation/consultation",
+        "text": "会话",
+        "iconPath": "/static/images/tabs/consultation.png",
+        "selectedIconPath": "/static/images/tabs/consultation-current.png"
+      },
+      {
+        "pagePath": "pages/information/information",
+        "text": "个人",
+        "iconPath": "/static/images/tabs/tab-personal.png",
+        "selectedIconPath": "/static/images/tabs/tab-personal-current.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#90EE90",
+    "navigationBarTitleText": "心声谷",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "cos-wx-sdk-v5": "^1.4.10",
+    "tim-js-sdk": "^2.27.3",
+    "tim-profanity-filter-plugin": "^0.9.0",
+    "tim-upload-plugin": "^1.2.0",
+    "tim-wx-sdk": "^2.27.3"
+  },
+  "name": "heartvalley-main2",
+  "description": "心声谷小程序界面",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

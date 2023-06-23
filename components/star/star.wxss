@@ -1,0 +1,35 @@
+.starbox{
+  display: flex;
+  align-items: center;
+ }
+
+ .imgbox {
+  display: flex;
+  flex: 1;
+  height: 80rpx;
+  width:70%;
+  position: relative;
+  align-items: center;
+ }
+ .star-image {
+  position: absolute;
+  top: 4rpx;
+  left: 0;
+  src: "/static/images/star/empty.png";
+ }
+
+ .item{
+  position: absolute;
+  top: 0rpx;
+ }
+
+ .score {
+   margin-left: 350rpx;
+   margin-bottom: 10rpx;
+   width: 30%;
+   font-size: 30rpx;
+   height: 40rpx;
+   line-height: 40rpx;
+   align-items: center;
+ }
+ 

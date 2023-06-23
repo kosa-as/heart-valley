@@ -1,0 +1,112 @@
+/* pages/updateinfo/updateinfo.wxss */
+page {
+  background-color: #EEEEEE;
+}
+
+.container {
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.item {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border: 1rpx solid rgb(0, 0, 0);
+  border-radius: 20rpx;
+}
+
+.label {
+  width: 300rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin-left: 120rpx;
+}
+
+.getava {
+  width: 30rpx;
+  text-align: center;
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  background-color: #5fdd9a;
+  border-radius: 12rpx;
+}
+
+.input {
+  flex: 1;
+  height: 60rpx;
+  border: none;
+  padding: 0 20rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+
+.radio-label {
+  margin-left: 20rpx;
+}
+.button {
+  width: 100%;
+  height: 80rpx;
+  line-height: 45rpx;
+  text-align: center;
+  background-color: #5fdd9a;
+  color: rgb(0, 0, 0);
+  font-size: 32rpx;
+  border-radius: 12rpx;
+  margin-top: 40rpx;
+}
+
+/* radio样式*/
+radio .wx-radio-input {
+  width: 30rpx;
+  height: 30rpx;
+  border: 2rpx solid #b3b3b3;/* 外圈边框，未选中状态默认灰色*/
+  border-radius: 50%;
+  background: none;
+}
+/*radio选中后内部样式*/
+radio .wx-radio-input.wx-radio-input-checked {
+  border: 2rpx solid #15e0a2 !important;/* 选中状态外圈边框颜色*/
+  background-color: white !important;/* 外圈边框与内圈实心圆间的内容的颜色，默认上边的绿色*/
+}
+/*radio选中后内部中心*/
+radio .wx-radio-input.wx-radio-input-checked::before {
+  width: 60%;
+  height: 60%;
+  background: #15e0a2;/* 内圈实心圆选中颜色*/
+  border-radius: 50%;
+  content: '';/* 隐藏✔️*/
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+/*checkbox 选项框大小  */
+checkbox .wx-checkbox-input {
+  width: 30rpx;
+  height: 30rpx;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #15e0a2;
+  border: 1rpx solid #15e0a2 !important; /*选中后多选框边框颜色*/
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

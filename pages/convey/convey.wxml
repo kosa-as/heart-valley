@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="banner">
+    <view>
+      <text class="banner-text">选择历史咨询记录</text>
+    </view>
+    <view class="send-button" bindtap="sendRecords">发送</view>
+  </view>
+  <checkbox-group bindchange="checkboxChange" class="checkbox-group">
+    <block wx:for="{{consultationRecords}}" wx:key="id">
+      <label class="record-item">
+        <view class="record-info">
+          <text>咨询师：{{item.c_name}}</text>
+          <text>时间：{{item.starttime}}</text>
+        </view>
+        <view class="boxcontainer">
+          <checkbox value="{{item.id}}" class="record-checkbox"></checkbox>
+        </view>
+      </label>
+    </block>
+  </checkbox-group>
+</view>
+
+
+
+
+

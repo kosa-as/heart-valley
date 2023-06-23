@@ -1,0 +1,20 @@
+<!--pages/evaluating/evaluating.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="avacontainer">
+      <image class="avatar" src="{{consultant.avatar}}" mode="aspectFit"></image>
+    </view>
+      <text class="name">{{consultant.name}}</text>
+  </view>
+  <view class="rate-container">
+    <text>您的评价：</text>
+    <Rate  isShowStarValue="{{false}}" disabled="{{false}}"  WH="80" class="myrating" bind:change="onRateChange"></Rate>
+  </view>
+  <view class="comment-area">
+    <textarea class="comment-input" placeholder="请向我们反馈对于咨询师的评价" bindinput="inputComment"></textarea>
+  </view>
+  <view class="submit-area">
+    <button class="submit-button" bindtap="submitComment">提交</button>
+  </view>
+</view>
+

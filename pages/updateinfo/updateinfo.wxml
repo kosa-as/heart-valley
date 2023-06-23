@@ -1,0 +1,36 @@
+<!-- pages/updateinfo/updateinfo.wxml -->
+<view class="container">
+  <view class="item">
+    <text class="label">头像：</text>
+    <image wx:if='{{avatar}}' class="avatar" src="{{ avatar }}"></image>
+    <button wx:else class="getava" open-type="chooseAvatar" bindchooseavatar="chooseavatar">点击设置头像</button>
+  </view>
+  <view class="item">
+    <text class="label">真实姓名：</text>
+    <input class="input" value="{{ realName }}" bindinput="inputRealName"></input>
+  </view>
+  <view class="item">
+    <text class="label">性别：</text>
+        <view class="radio-group">
+          <radio-group bindchange="handleGenderChange">
+            <label class="radio-label">
+              <radio value="男" checked="{{gender === '男'}}" />
+              <text class="radio-text">男</text>
+            </label>
+            <label class="radio-label">
+              <radio value="女" checked="{{gender === '女'}}" />
+              <text class="radio-text">女</text>
+            </label>
+          </radio-group>
+        </view>
+  </view>
+  <view class="item">
+    <text class="label">紧急联系人姓名：</text>
+    <input class="input" value="{{ emergencyContactName }}" bindinput="inputEmergencyName"></input>
+  </view>
+  <view class="item">
+    <text class="label">紧急联系人电话：</text>
+    <input class="input" value="{{ emergencyContactNumber }}" bindinput="inputEmergencyNumber"></input>
+  </view>
+  <button class="button" bindtap="saveInformation">保存修改</button>
+</view>

@@ -1,0 +1,69 @@
+/* pages/consultation/consultation.wxss */
+page {
+  background-color: #EEEEEE;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.session-list {
+  margin-top: 20rpx;
+}
+
+.session-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+}
+
+.avatar-wrapper {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 20rpx;
+}
+
+.avatar {
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  margin-left:6rpx ;
+  margin-top: 6rpx;
+}
+
+.session-info {
+  flex: 1;
+}
+
+.session-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.time {
+  font-size: 24rpx;
+  color: rgba(153, 153, 153,0.8);
+}
+
+.session-bottom {
+  margin-top: 20rpx;
+}
+
+.message {
+  font-size: 28rpx;
+  color: rgba(153, 153, 153,0.5);
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}

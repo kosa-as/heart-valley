@@ -1,0 +1,68 @@
+/* pages/evaluating/evaluating.wxss */
+page {
+  background-color: #EEEEEE;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 40rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.avacontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140rpx;
+  height: 140rpx;
+  margin-left: 120rpx;
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.name {
+  margin-left: 60rpx;
+  font-size: 40rpx;
+}
+
+.rate-container {
+  display: flex;
+  align-items: center;
+  margin-left: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.comment-area {
+  margin-bottom: 40rpx;
+}
+
+.comment-input {
+  box-sizing: border-box;
+  width: 670rpx;
+  height: 600rpx;
+  border: 1px solid #ccc;
+  border-radius: 8rpx;
+  padding: 20rpx;
+}
+
+.submit-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+
+.submit-button {
+  background-color: #5fdd9a;
+  color: rgb(255, 255, 255);
+  padding: 20rpx 40rpx;
+  border-radius: 16rpx;
+}
