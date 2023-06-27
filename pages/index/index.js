@@ -30,17 +30,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    request({
-      url: '/records/recordForVisitor/'+app.globalData.pno,
-    }).then(res=>{
-      this.setData(
-        {
-         consultationRecords: res.data.records.reverse()
-        }
-      )
-    }).then(
-      console.log('-----------'),
-      console.log(this.data.consultationRecords))
   },
 
   /**
@@ -54,6 +43,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    let promise = app.globalData.TIM.getMyProfile()
+    promise.then(function(imResponse) {
+      app.globalData.avatar = imResponse.data.avatar; // 存储用户资料的数组 - [Profile]
+    }).catch(function(imError) {
+      console.warn('getUserProfile error:', imError); // 获取其他用户资料失败的相关信息
+    })
+    request({
+      url: '/records/recordForVisitor/'+app.globalData.pno,
+    }).then(res=>{
+      this.setData(
+        {
+         consultationRecords: res.data.records
+        }
+      )
+    }).then(
+      console.log('-----------'),
+      console.log(this.data.consultationRecords),
+      )
   },
 
   /**

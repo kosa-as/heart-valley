@@ -76,7 +76,6 @@ Page({
       method: 'PATCH',
       data:{
         name: realName,
-        image: avatar, 
         contact_pno: emergencyContactNumber,
         gender: gender,
         contact_name: emergencyContactName,

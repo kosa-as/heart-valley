@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatar: '',
+    avatar: 'https://pic3.zhimg.com/80/v2-3138a81b743c0b9c2c792c61f0f016c6_720w.webp',
     realName: '',
     contactNumber: '',
     emergencyContactName: '',
@@ -55,7 +55,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-     
   },
 
   /**
@@ -69,15 +68,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    console.log(app.globalData)
-    this.setData({
-      avatar: (app.globalData.avatar==null)?'':((app.globalData.avatar.length==0)?'':app.globalData.avatar),
-      realName: app.globalData.name,
-      gender: app.globalData.gender,
-      contactNumber: app.globalData.pno,
-      emergencyContactName: app.globalData.contact_name,
-      emergencyContactNumber: app.globalData.contact_pno,
-   })
+    let that = this;
+    let promise = app.globalData.TIM.getMyProfile()
+    promise.then(function(imResponse) {
+      app.globalData.avatar = imResponse.data.avatar; // 存储用户资料的数组 - [Profile]
+      console.log(app.globalData)
+      that.setData({
+        avatar: (app.globalData.avatar==null)?'https://pic3.zhimg.com/80/v2-3138a81b743c0b9c2c792c61f0f016c6_720w.webp':((app.globalData.avatar.length==0)?'https://pic3.zhimg.com/80/v2-3138a81b743c0b9c2c792c61f0f016c6_720w.webp':app.globalData.avatar),
+        realName: app.globalData.name,
+        gender: app.globalData.gender,
+        contactNumber: app.globalData.pno,
+        emergencyContactName: app.globalData.contact_name,
+        emergencyContactNumber: app.globalData.contact_pno,
+     })
+    }).catch(function(imError) {
+      console.warn('getUserProfile error:', imError); // 获取其他用户资料失败的相关信息
+    })
   },
 
   /**

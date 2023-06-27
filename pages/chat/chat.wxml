@@ -36,7 +36,7 @@
                         </image>
                     </view>
                     <view class="chat-head">
-                        <image class="chat-headPortrait" src="../../image/home_img/page2.jpg"></image>
+                        <image class="chat-headPortrait" src="{{item.avatar}}"></image>
                     </view>
                   </view>
                 </view>
@@ -62,7 +62,7 @@
                         </view>    
                     </view>
                     <view class="chat-head">
-                        <image class="chat-headPortrait" src="../../image/home_img/home.png"></image>
+                        <image class="chat-headPortrait" src="{{item.avatar}}"></image>
                     </view>
                   </view>
                 </view>
@@ -87,11 +87,11 @@
                         </view>    
                     </view>
                     <view class="chat-head">
-                        <image class="chat-headPortrait" src="../../image/home_img/home.png"></image>
+                        <image class="chat-headPortrait" src="{{item.avatar}}"></image>
                     </view>
                   </view>
                 </view>
-                <view wx:else  id="msg-{{index}}" class="new">
+                <view wx:else id="msg-{{index}}" class="new">
                   <view class="chat-time">{{ item.timeFormat }}</view>
                   <view class="chat-row flex-box-end">
                     <view class="chat-main">
@@ -99,7 +99,7 @@
                         <view class="chat-msg">{{ item.payload.text }}</view>    
                     </view>
                     <view class="chat-head">
-                        <image class="chat-headPortrait" src="../../image/home_img/home.png"></image>
+                        <image class="chat-headPortrait" src="{{item.avatar}}"></image>
                     </view>
                   </view>
                 </view>

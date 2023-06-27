@@ -27,6 +27,9 @@ Page({
           if (res.confirm) {
             // 用户点击等待，执行排队队列的操作
             console.log('进入排队队列');
+            wx.showToast({
+              title: '已加入排队队列！',
+            })
           } else if (res.cancel) {
             // 用户点击取消，回到咨询师列表
             console.log('取消选择咨询师');
@@ -60,6 +63,10 @@ Page({
   create_session(item){
       console.log('----------')
       app.globalData.username = item.username
+      request({
+        url: '/counselors/addCurrent/'+app.globalData.username,
+        method:'GET'
+      })
       wx.redirectTo({
         url: '/pages/chat/chat',
       })
@@ -110,6 +117,7 @@ Page({
         that.data.counselor = that.data.counselor.map((member, index)=>{
           return {...member, id: index}
         })
+        console.log(that.data.counselor)
       })
    },10000)
   },

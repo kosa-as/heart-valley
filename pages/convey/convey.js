@@ -80,7 +80,7 @@ Page({
     request({
       url: '/records/recordForVisitor/'+app.globalData.pno,
     }).then(res=>{
-      var data = res.data.records.reverse()
+      var data = res.data.records
       data = data.map((member, index)=>{
         return {...member, id: index}})
       this.setData(
@@ -144,8 +144,8 @@ Page({
       if (item.type == "TIMImageElem"){
       message = `${item.nick}:图片`
       }
-      if (item.type == "TIMImageElem"){
-        message = `${item.nick}:${item.payload.text(0,10)}`
+      if (item.type == "TIMTextElem"){
+        message = `${item.nick}:${item.payload.text.slice(0,10)}`
       }
       return message
     })

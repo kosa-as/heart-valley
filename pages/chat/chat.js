@@ -78,11 +78,9 @@ Page({
         wx.event.on('conversationInit', () => {
             this.TIM_getMsgList();
         });
-
-        //订阅收到消息
         wx.event.on('received', (e) => {
-            this.TIM_setGlobalMsg(e,'received');
-        });
+          this.TIM_setGlobalMsg(e,'received');
+      });
 
         //录音
         recorderManager.onStart(() => {
@@ -287,10 +285,7 @@ Page({
               arrMerge.push(data)
             }
             if (data.type === 'TIMImageElem') {
-                arrImg.push(data.payload.imageInfoArray[0].url);
-            }
-            if(data.type === 'TIMCustomElem') {
-                data.dataCustom = isJSON(data.payload.data)? JSON.parse(data.payload.data):{};
+                arrImg.push(data.payload.imageInfoArray[2].url);
             }
             data.timeFormat = getDatePattern(new Date(data.time * 1000), 'yyyy-MM-dd HH:mm');
             arrMsg.push(data);
@@ -313,10 +308,7 @@ Page({
                     arrMerge.push(x)
                 }
                 if (x.type === 'TIMImageElem') {
-                    arrImg.push(x.payload.imageInfoArray[0].url);
-                }
-                if(x.type === 'TIMCustomElem') {
-                    x.dataCustom = isJSON(x.payload.data)? JSON.parse(x.payload.data):{};
+                    arrImg.push(x.payload.imageInfoArray[2].url);
                 }
                 x.timeFormat = getDatePattern(new Date(x.time * 1000), 'yyyy-MM-dd HH:mm')
                 return x
@@ -604,14 +596,7 @@ Page({
  */
 onShow() {
    wx.hideHomeButton();
-   wx.event.on('conversationInit', () => {
-    this.TIM_getMsgList();
-});
-
 //订阅收到消息
-wx.event.on('received', (e) => {
-    this.TIM_setGlobalMsg(e,'received');
-});
 },
 
 /**
@@ -632,16 +617,10 @@ onHide() {
         data: 'Over', // 用于标识该消息是骰子类型消息
       }
     });
-  this.TIM_sendMessageFun(message);  
-  wx.showToast({
-      title: '正在跳转至评价界面，请稍等!',
-      icon: 'none',
-      duration: 3000
-    }).then(res=>{
+      this.TIM_sendMessageFun(message);  
       wx.navigateTo({
         url: `/pages/evaluating/evaluating?app_Data=${app.globalData}&start_time=${this.data.start_time}&duration=${this.data.duration}`,
       })
-    })
 },
 
 /**
